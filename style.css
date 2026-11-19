@@ -1,6 +1,5 @@
-/* One quiet page. Every size is relative to the width of the text column,
-   so the page looks the same on a phone, a tablet and a desktop: it is the
-   same view, just scaled. No menu, no framework, no build step. */
+/* One quiet page. Balanced column width and proportional scaling
+   across phone, tablet, and desktop. No menu, no framework, no build step. */
 
 :root {
   --bg: #faf8f4;          /* soft off-white */
@@ -10,7 +9,7 @@
   --mark: #2b2a27;        /* divider mark */
   --icon: #2f7fc1;        /* contact icons */
   --gutter: 1.25rem;      /* side space on small screens */
-  --col: 30rem;           /* the column never grows past this */
+  --col: 42rem;           /* wider column so side margins do not feel excessive */
   --serif: "Cormorant Garamond", "EB Garamond", Garamond, "Iowan Old Style", Georgia, serif;
   --sans: Arial, Helvetica, sans-serif;
 }
@@ -34,7 +33,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* The column: full width minus the gutters on phones, capped on bigger screens. */
+/* The column: full width minus the gutters on small screens, capped at --col on larger screens. */
 .frame {
   container-type: inline-size;
   width: min(100% - 2 * var(--gutter), var(--col));
@@ -42,34 +41,33 @@ body {
 }
 
 .page {
-  /* Fallback first; the cqw line wins where container units are supported. */
   font-size: 1.15rem;
-  font-size: 5.6cqw;
-  line-height: 1.5;
+  font-size: clamp(1.05rem, 4.4cqw, 1.35rem);
+  line-height: 1.55;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  padding: 1em 0 3em;
+  padding: 1.25em 0 3em;
   padding-bottom: max(3em, env(safe-area-inset-bottom));
 }
 
 /* Portrait */
 .portrait {
   display: block;
-  width: 50%;
+  width: 46%;
+  max-width: 260px;
   height: auto;            /* let aspect-ratio decide, not the HTML attribute */
   aspect-ratio: 6 / 7;
   object-fit: cover;
   object-position: center 28%;
-  margin: 0 auto 3.2em;
+  margin: 0 auto 2.8em;
 }
 
 /* Text */
 .text p {
-  margin: 0 0 1.5em;
+  margin: 0 0 1.45em;
   text-wrap: pretty;
-  hanging-punctuation: first;
 }
 .text p:last-child { margin-bottom: 0; }
 
@@ -102,7 +100,7 @@ a:focus-visible {
 .divider {
   display: flex;
   justify-content: center;
-  margin: 2.4em 0;
+  margin: 2.2em 0;
   color: var(--mark);
 }
 .divider svg {
@@ -114,7 +112,7 @@ a:focus-visible {
 /* Contact: sits at the bottom of the screen when the page is short */
 .contact {
   margin-top: auto;
-  padding-top: 3em;
+  padding-top: 2.8em;
   text-align: center;
 }
 
