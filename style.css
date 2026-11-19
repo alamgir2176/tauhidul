@@ -215,6 +215,12 @@ body {
 }
 
 
+/* Extra space between the two text sections */
+.text + .text {
+  margin-top: 1.8em;
+}
+
+
 /* Paragraph links */
 a {
   color: var(--link);
@@ -245,27 +251,6 @@ a:focus-visible {
 ::selection {
   background: #e9e0cc;
   color: var(--text);
-}
-
-
-/* ==========================================
-   DIVIDER
-   ========================================== */
-
-.divider {
-  display: flex;
-  justify-content: center;
-
-  margin: 2.1em 0 2.2em;
-
-  color: var(--mark);
-}
-
-
-.divider svg {
-  width: 1.15em;
-  height: 1.15em;
-  display: block;
 }
 
 
@@ -460,7 +445,6 @@ a:focus-visible {
 
 .portrait,
 .text,
-.divider,
 .contact {
   animation: rise 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) both;
 }
@@ -468,11 +452,6 @@ a:focus-visible {
 
 .text {
   animation-delay: 0.12s;
-}
-
-
-.divider {
-  animation-delay: 0.2s;
 }
 
 
@@ -493,7 +472,6 @@ a:focus-visible {
 
   .portrait,
   .text,
-  .divider,
   .contact {
     animation: none;
   }
@@ -522,7 +500,6 @@ a:focus-visible {
 
   .portrait,
   .text,
-  .divider,
   .contact {
     animation: none;
   }
