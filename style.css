@@ -1,36 +1,36 @@
+
 /* One quiet page that looks the same on every screen.
-
-   The whole page is a single composition sized from the width of the screen:
-   header, text, photo, spacing and icons all scale together (everything below
-   is in em, and the em itself is 3.6% of the page width). On a phone the page
-   fills the screen; on a tablet it fills it too; on a desktop the page stops
-   growing at 760px and sits in the middle. The proportions never change, and
-   the menu is always the same plain row of links (no hamburger).
-
+   Desktop width expanded to 1100px.
+   Mobile layout remains unchanged.
    No framework, no JavaScript, no build step. */
 
 :root {
-  --bg: #faf8f4;          /* soft off-white */
+  --bg: #faf8f4;
   --text: #1d1c1a;
   --muted: #6f6a60;
   --link: #57534c;
-  --rule: #c8c2b6;        /* link underline */
-  --hair: #e6e1d6;        /* hairline under the header */
-  --mark: #2b2a27;        /* fingerprint */
-  --icon: #0099ff;        /* contact icons */
-  --max: 760px;           /* the page never grows past this width */
-  --serif: "Cormorant Garamond", "Cormorant Fallback", Garamond, "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --rule: #c8c2b6;
+  --hair: #e6e1d6;
+  --mark: #2b2a27;
+  --icon: #0099ff;
+
+  --max: 1100px;
+
+  --serif: "Cormorant Garamond", "Cormorant Fallback", Garamond,
+    "Iowan Old Style", Georgia, "Times New Roman", serif;
 }
 
-/* If the web font can't load, a close-sized local serif stands in so lines
-   break in about the same places. */
+/* Local font fallback */
 @font-face {
   font-family: "Cormorant Fallback";
-  src: local("Georgia"), local("Times New Roman"), local("Liberation Serif"), local("Noto Serif");
+  src: local("Georgia"), local("Times New Roman"),
+       local("Liberation Serif"), local("Noto Serif");
   size-adjust: 90%;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html {
   background: var(--bg);
@@ -50,29 +50,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* .wrap measures the screen; .frame is the page that scales with it. */
+/* Main wrapper */
 .wrap {
   container-type: inline-size;
   width: min(100%, var(--max));
   margin-inline: auto;
 }
 
+/* Main frame */
 .frame {
-  /* Older browsers: plain size, then a viewport-based size, then the
-     container-based size that browsers with container units use. */
   font-size: 16px;
   font-size: min(3.6vw, 27.4px);
-  font-size: 3.6cqw;
+  font-size: min(3.6cqw, 27.4px);
+
   line-height: 1.25;
   min-height: 100vh;
   min-height: 100svh;
+
   display: flex;
   flex-direction: column;
+
   padding: 0.78em 0.85em 1.6em;
   padding-bottom: max(1.6em, env(safe-area-inset-bottom));
 }
 
-/* Header: thin, small, the same everywhere */
+/* Header */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -80,6 +82,7 @@ body {
   gap: 1em;
   padding-bottom: 0.55em;
   border-bottom: 1px solid var(--hair);
+
   font-size: 0.74em;
   font-weight: 600;
   line-height: 1.2;
@@ -92,7 +95,10 @@ body {
   text-decoration-thickness: 0.07em;
   text-underline-offset: 0.28em;
 }
-.site-header a:hover { color: var(--text); }
+
+.site-header a:hover {
+  color: var(--text);
+}
 
 .brand {
   font-weight: 700;
@@ -106,6 +112,7 @@ body {
   padding: 0;
   list-style: none;
 }
+
 .menu a[aria-current="page"] {
   font-weight: 700;
   text-decoration-thickness: 0.13em;
@@ -117,14 +124,15 @@ body {
   padding-top: 2.2em;
 }
 
-/* Portrait: a CSS background, not an <img>, so it can't be long-pressed,
-   dragged out or right-clicked to "save image". */
+/* Portrait */
 .portrait {
   width: 13.05em;
   max-width: 100%;
   aspect-ratio: 6 / 7;
   margin: 0 auto 2.45em;
+
   background: #ebe6dc url("/photo.jpg") center / cover no-repeat;
+
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;
@@ -136,7 +144,10 @@ body {
   margin: 0 0 1.25em;
   text-wrap: pretty;
 }
-.text p:last-child { margin-bottom: 0; }
+
+.text p:last-child {
+  margin-bottom: 0;
+}
 
 a {
   color: var(--link);
@@ -144,12 +155,15 @@ a {
   text-decoration-color: var(--rule);
   text-decoration-thickness: 0.06em;
   text-underline-offset: 0.2em;
-  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  transition: color 0.2s ease,
+              text-decoration-color 0.2s ease;
 }
+
 a:hover {
   color: var(--text);
   text-decoration-color: var(--text);
 }
+
 a:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 0.15em;
@@ -161,20 +175,21 @@ a:focus-visible {
   color: var(--text);
 }
 
-/* Divider: a fingerprint */
+/* Divider */
 .divider {
   display: flex;
   justify-content: center;
   margin: 2.1em 0 2.2em;
   color: var(--mark);
 }
+
 .divider svg {
   width: 1.15em;
   height: 1.15em;
   display: block;
 }
 
-/* Footer: contact icons and the copyright line */
+/* Footer */
 .contact {
   padding-top: 2.4em;
   text-align: center;
@@ -194,7 +209,7 @@ a:focus-visible {
   gap: 0.6em;
 }
 
-/* Flat icons like the reference: no badge, one size, one colour. */
+/* Contact icons */
 .icon {
   position: relative;
   display: block;
@@ -205,8 +220,13 @@ a:focus-visible {
   line-height: 0;
   transition: opacity 0.2s ease;
 }
-.icon:hover { color: var(--icon); opacity: 0.8; }
-/* A larger invisible tap area, so the icons are easy to hit on a phone. */
+
+.icon:hover {
+  color: var(--icon);
+  opacity: 0.8;
+}
+
+/* Larger tap area for mobile */
 .icon::before {
   content: "";
   position: absolute;
@@ -216,12 +236,14 @@ a:focus-visible {
   height: 36px;
   transform: translate(-50%, -50%);
 }
+
 .icon svg {
   display: block;
   width: 100%;
   height: 100%;
   fill: currentColor;
 }
+
 .icon .cut {
   fill: none;
   stroke: var(--bg);
@@ -230,6 +252,7 @@ a:focus-visible {
   stroke-linejoin: round;
 }
 
+/* Copyright */
 .copy {
   margin: 1.5em 0 0;
   font-size: 0.62em;
@@ -238,23 +261,28 @@ a:focus-visible {
   color: var(--muted);
 }
 
-/* List pages (for future pages such as writing or projects):
-   <section class="list"><h2>Heading</h2>
-     <div class="item"><a class="title" href="...">Title</a><p>Short line.</p></div>
-   </section> */
+/* List pages */
 .list h2 {
   margin: 2.2em 0 0.8em;
   font-size: 1.05em;
   font-weight: 700;
   line-height: 1.25;
 }
-.list h2:first-child { margin-top: 0; }
-.list .item { margin: 0 0 1.5em; }
+
+.list h2:first-child {
+  margin-top: 0;
+}
+
+.list .item {
+  margin: 0 0 1.5em;
+}
+
 .list .item .title {
   font-size: 1.2em;
   font-weight: 500;
   line-height: 1.2;
 }
+
 .list .item p {
   margin: 0.2em 0 0;
   font-size: 0.9em;
@@ -270,26 +298,72 @@ a:focus-visible {
   padding-top: 0;
 }
 
-/* Gentle entrance */
+/* Gentle entrance animation */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(0.5em); }
-  to   { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
-.portrait, .text, .divider, .contact {
+
+.portrait,
+.text,
+.divider,
+.contact {
   animation: rise 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) both;
 }
-.text    { animation-delay: 0.12s; }
-.divider { animation-delay: 0.2s; }
-.contact { animation-delay: 0.28s; }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .portrait, .text, .divider, .contact { animation: none; }
-  a, .icon { transition: none; }
+.text {
+  animation-delay: 0.12s;
 }
 
+.divider {
+  animation-delay: 0.2s;
+}
+
+.contact {
+  animation-delay: 0.28s;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .portrait,
+  .text,
+  .divider,
+  .contact {
+    animation: none;
+  }
+
+  a,
+  .icon {
+    transition: none;
+  }
+}
+
+/* Print */
 @media print {
-  html, body { background: #fff; }
-  .frame { min-height: 0; }
-  .portrait, .text, .divider, .contact { animation: none; }
+  html,
+  body {
+    background: #fff;
+  }
+
+  .frame {
+    min-height: 0;
+  }
+
+  .portrait,
+  .text,
+  .divider,
+  .contact {
+    animation: none;
+  }
 }
