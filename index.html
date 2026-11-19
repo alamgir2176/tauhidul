@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Md Tauhidul Islam</title>
   <meta name="description" content="Md Tauhidul Islam is a philosophy graduate from Bangladesh, interested in mind, language, ethics and technology.">
@@ -18,9 +20,10 @@
   <meta name="twitter:card" content="summary">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="photo.jpg" as="image" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
   <script type="application/ld+json">
@@ -29,7 +32,6 @@
     "@type": "Person",
     "name": "Md Tauhidul Islam",
     "url": "https://tauhidul.vercel.app/",
-    "image": "https://tauhidul.vercel.app/photo.jpg",
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Jahangirnagar University" },
     "knowsAbout": ["Philosophy", "Ethics of technology", "Philosophy of mind", "Philosophy of language"],
     "sameAs": ["https://www.linkedin.com/in/mdtauhidul-islam"]
@@ -39,12 +41,13 @@
 <body>
   <div class="frame">
     <main class="page">
-      <img class="portrait" src="photo.jpg" width="1024" height="1024" alt="Portrait of Md Tauhidul Islam" fetchpriority="high" decoding="async">
+      <!-- A CSS background rather than an <img>: no "save image" on long-press, no drag-out. -->
+      <div class="portrait" role="img" aria-label="Portrait of Md Tauhidul Islam"></div>
 
       <section class="text">
-        <p>I&rsquo;m Tauhidul, a philosophy graduate from Bangladesh. I studied Philosophy at <a href="https://www.juniv.edu/">Jahangirnagar University</a>, where I completed both my BA and MA, and I keep coming back to the same few questions: how the mind works, how words come to mean something, and what technology asks of us ethically.</p>
+        <p>I&rsquo;m Tauhidul, a philosophy graduate from Bangladesh. I studied Philosophy at <a href="https://www.juniv.edu/" rel="noopener noreferrer">Jahangirnagar University</a>, where I completed both my BA and MA, and I keep coming back to the same few questions: how the mind works, how words come to mean something, and what technology asks of us ethically.</p>
 
-        <p>My reading moves between Western and Indian philosophy, the philosophy of Bengal, logic, and the ethics of technology. I also like to make things. I experiment with AI tools, no-code platforms and WordPress, and I&rsquo;ve followed courses such as <a href="https://www.elementsofai.com/">the Elements of AI</a> to understand how these tools actually work.</p>
+        <p>My reading moves between Western and Indian philosophy, the philosophy of Bengal, logic, and the ethics of technology. I also like to make things. I experiment with AI tools, no-code platforms and WordPress, and I&rsquo;ve followed courses such as <a href="https://www.elementsofai.com/" rel="noopener noreferrer">the Elements of AI</a> to understand how these tools actually work.</p>
 
         <p>Beyond the classroom, I spent about three years with student volunteer groups, handing out winter clothes to 300 people, welcoming new students, and running helpdesks for admission-test candidates. I donated blood, helped connect people in need with free blood, and performed on stage with Jahangirnagar Theatre.</p>
       </section>
@@ -62,7 +65,7 @@
       <footer class="contact">
         <p class="label">Contact:</p>
         <div class="icons">
-          <a class="icon" href="https://www.linkedin.com/in/mdtauhidul-islam" aria-label="Tauhidul on LinkedIn" rel="me noopener">
+          <a class="icon" href="https://www.linkedin.com/in/mdtauhidul-islam" aria-label="Tauhidul on LinkedIn" rel="me noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect class="badge" width="24" height="24" rx="5.5"/>
               <rect class="glyph" x="5.1" y="9.6" width="2.7" height="8.4"/>
