@@ -1,16 +1,19 @@
 # Md Tauhidul Islam: personal website
 
-A single-page personal site built with plain HTML and CSS. There is no build step and no framework, so it keeps working years from now.
+A one-page personal site in plain HTML and CSS. There is no menu, no framework and no build step.
 
 ## Files
 
-- `index.html`: all the content
-- `style.css`: the design (light and dark mode follow the visitor's system setting)
+- `index.html`: all the text and links
+- `style.css`: the design; colors and fonts are at the top, in the `:root` block
+- `photo.jpg`: the portrait shown at the top
 - `favicon.svg`: the browser tab icon
 
 ## Editing
 
-Change the text directly in `index.html`. Colors and fonts live at the top of `style.css`, in the `:root` block.
+- Change the text directly in `index.html`.
+- To change the photo, replace `photo.jpg` with another image of any size (a portrait-shaped photo of about 800 px wide looks best).
+- The font (Cormorant Garamond) is loaded from Google Fonts. If it cannot load, the page falls back to Garamond or Georgia.
 
 ## Running locally
 
