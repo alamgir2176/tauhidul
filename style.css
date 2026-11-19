@@ -1,11 +1,16 @@
-/* One quiet page: white background, a portrait, and well-set type.
-   No menu, no framework, no build step. */
+/* One quiet page. Every size is relative to the width of the text column,
+   so the page looks the same on a phone, a tablet and a desktop: it is the
+   same view, just scaled. No menu, no framework, no build step. */
 
 :root {
-  --bg: #ffffff;
-  --text: #1b1b1b;
-  --link: #4d4d4d;
-  --rule: #cfcfcf;
+  --bg: #faf8f4;          /* soft off-white */
+  --text: #1d1c1a;
+  --link: #57534c;
+  --rule: #c8c2b6;        /* link underline */
+  --mark: #2b2a27;        /* divider mark */
+  --icon: #2f7fc1;        /* contact icons */
+  --gutter: 1.25rem;      /* side space on small screens */
+  --col: 30rem;           /* the column never grows past this */
   --serif: "Cormorant Garamond", "EB Garamond", Garamond, "Iowan Old Style", Georgia, serif;
   --sans: Arial, Helvetica, sans-serif;
 }
@@ -13,8 +18,9 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  -webkit-text-size-adjust: 100%;
   background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -22,97 +28,157 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(1.3rem, 1.15rem + 0.5vw, 1.55rem);
-  line-height: 1.5;
+  font-weight: 500;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  width: min(100% - 3rem, 38rem);
-  margin: 0 auto;
-  padding: 1.5rem 0 3.5rem;
+/* The column: full width minus the gutters on phones, capped on bigger screens. */
+.frame {
+  container-type: inline-size;
+  width: min(100% - 2 * var(--gutter), var(--col));
+  margin-inline: auto;
+}
+
+.page {
+  /* Fallback first; the cqw line wins where container units are supported. */
+  font-size: 1.15rem;
+  font-size: 5.6cqw;
+  line-height: 1.5;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0 3em;
+  padding-bottom: max(3em, env(safe-area-inset-bottom));
 }
 
 /* Portrait */
 .portrait {
   display: block;
-  width: min(62%, 17.5rem);
-  aspect-ratio: 5 / 6;
+  width: 50%;
+  aspect-ratio: 6 / 7;
   object-fit: cover;
-  object-position: center 30%;
-  margin: 0 auto clamp(2.5rem, 7vw, 4.5rem);
+  object-position: center 28%;
+  margin: 0 auto 3.2em;
 }
 
 /* Text */
 .text p {
   margin: 0 0 1.5em;
+  text-wrap: pretty;
+  hanging-punctuation: first;
 }
-
-.text p:last-child {
-  margin-bottom: 0;
-}
+.text p:last-child { margin-bottom: 0; }
 
 em { font-style: italic; }
 
 a {
   color: var(--link);
-  text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.2em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
-
 a:hover {
   color: var(--text);
-  border-color: var(--text);
+  text-decoration-color: var(--text);
 }
-
 a:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* Divider mark */
+::selection {
+  background: #e9e0cc;
+  color: var(--text);
+}
+
+/* Divider: a fingerprint */
 .divider {
   display: flex;
   justify-content: center;
-  margin: clamp(2.5rem, 7vw, 4rem) 0;
-  color: #3a3a3a;
+  margin: 2.4em 0;
+  color: var(--mark);
+}
+.divider svg {
+  width: 1.7em;
+  height: 1.7em;
+  display: block;
 }
 
-/* Contact */
+/* Contact: sits at the bottom of the screen when the page is short */
 .contact {
-  margin-top: clamp(2.75rem, 8vw, 4.5rem);
+  margin-top: auto;
+  padding-top: 3em;
   text-align: center;
 }
 
 .contact .label {
-  margin: 0 0 0.6rem;
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 700;
-  line-height: 1.4;
+  margin: 0 0 0.6em;
+  font: 700 0.68em/1.4 var(--sans);
+  letter-spacing: 0.01em;
 }
 
-.contact .icon {
-  display: inline-block;
-  margin: 0 0.45rem;
-  border-bottom: 0;
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.7em;
+}
+
+/* Both icons share one size and one colour. */
+.icon {
+  display: block;
+  width: 1.6em;
+  height: 1.6em;
+  color: var(--icon);
+  text-decoration: none;
   line-height: 0;
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-
-.contact .icon:hover {
-  opacity: 0.8;
+.icon:hover {
+  color: var(--icon);
+  opacity: 0.82;
   transform: translateY(-1px);
 }
+.icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.icon .badge { fill: currentColor; }
+.icon .glyph { fill: var(--bg); }
+.icon .glyph-line {
+  fill: none;
+  stroke: var(--bg);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Gentle entrance */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.5em); }
+  to   { opacity: 1; transform: none; }
+}
+.portrait, .text, .divider, .contact {
+  animation: rise 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+.text    { animation-delay: 0.12s; }
+.divider { animation-delay: 0.2s; }
+.contact { animation-delay: 0.28s; }
 
 @media (prefers-reduced-motion: reduce) {
-  a, .contact .icon { transition: none; }
-  .contact .icon:hover { transform: none; }
+  .portrait, .text, .divider, .contact { animation: none; }
+  a, .icon { transition: none; }
+  .icon:hover { transform: none; }
 }
 
 @media print {
-  .contact .icon { display: none; }
+  html, body { background: #fff; }
+  .page { min-height: 0; }
+  .portrait, .text, .divider, .contact { animation: none; }
 }
