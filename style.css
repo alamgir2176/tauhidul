@@ -329,7 +329,7 @@ a:focus-visible {
 }
 
 
-/* SVG sizing */
+/* SVG sizing and alignment */
 .icon svg {
   display: block;
 
@@ -339,20 +339,13 @@ a:focus-visible {
   margin: 0;
   padding: 0;
 
+  transform: none;
+
   fill: currentColor;
 }
 
 
-/* Optical alignment */
-.icon:first-child svg {
-  transform: translateY(0.04em);
-}
-
-.icon:last-child svg {
-  transform: translateY(-0.02em);
-}
-
-
+/* Email icon cutout */
 .icon .cut {
   fill: none;
   stroke: var(--bg);
