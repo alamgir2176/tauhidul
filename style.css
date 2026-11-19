@@ -1,20 +1,19 @@
-/* One quiet page. Balanced column width and proportional scaling
-   across phone, tablet, and desktop. No menu, no framework, no build step. */
+/* Clean, steady single-column layout inspired by the reference site */
 
 :root {
-  --bg: #faf8f4;          /* soft off-white */
+  --bg: #faf8f4;
   --text: #1d1c1a;
   --link: #57534c;
-  --rule: #c8c2b6;        /* link underline */
-  --mark: #2b2a27;        /* divider mark */
-  --icon: #2f7fc1;        /* contact icons */
-  --gutter: 1.25rem;      /* side space on small screens */
-  --col: 42rem;           /* wider column so side margins do not feel excessive */
+  --rule: #c8c2b6;
+  --mark: #2b2a27;
+  --icon: #2f7fc1;
   --serif: "Cormorant Garamond", "EB Garamond", Garamond, "Iowan Old Style", Georgia, serif;
   --sans: Arial, Helvetica, sans-serif;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html {
   background: var(--bg);
@@ -28,50 +27,51 @@ body {
   color: var(--text);
   font-family: var(--serif);
   font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.55;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* The column: full width minus the gutters on small screens, capped at --col on larger screens. */
 .frame {
-  container-type: inline-size;
-  width: min(100% - 2 * var(--gutter), var(--col));
-  margin-inline: auto;
+  width: 100%;
+  padding: 2.25rem 1.25rem 3rem;
+  padding-bottom: max(3rem, env(safe-area-inset-bottom));
 }
 
 .page {
-  font-size: 1.15rem;
-  font-size: clamp(1.05rem, 4.4cqw, 1.35rem);
-  line-height: 1.55;
-  min-height: 100vh;
-  min-height: 100svh;
+  max-width: 42rem;
+  margin: 0 auto;
+  min-height: calc(100vh - 5.25rem);
   display: flex;
   flex-direction: column;
-  padding: 1.25em 0 3em;
-  padding-bottom: max(3em, env(safe-area-inset-bottom));
 }
 
 /* Portrait */
 .portrait {
   display: block;
-  width: 46%;
-  max-width: 260px;
-  height: auto;            /* let aspect-ratio decide, not the HTML attribute */
+  width: 13rem;
+  max-width: 55%;
+  height: auto;
   aspect-ratio: 6 / 7;
   object-fit: cover;
   object-position: center 28%;
-  margin: 0 auto 2.8em;
+  margin: 0 auto 2.5rem;
 }
 
 /* Text */
 .text p {
-  margin: 0 0 1.45em;
+  margin: 0 0 1.4rem;
   text-wrap: pretty;
 }
-.text p:last-child { margin-bottom: 0; }
+.text p:last-child {
+  margin-bottom: 0;
+}
 
-em { font-style: italic; }
+em {
+  font-style: italic;
+}
 
 a {
   color: var(--link);
@@ -81,10 +81,12 @@ a {
   text-underline-offset: 0.2em;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
+
 a:hover {
   color: var(--text);
   text-decoration-color: var(--text);
 }
+
 a:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 3px;
@@ -96,58 +98,61 @@ a:focus-visible {
   color: var(--text);
 }
 
-/* Divider: a fingerprint */
+/* Divider */
 .divider {
   display: flex;
   justify-content: center;
-  margin: 2.2em 0;
+  margin: 2rem 0;
   color: var(--mark);
 }
+
 .divider svg {
-  width: 1.7em;
-  height: 1.7em;
+  width: 1.65rem;
+  height: 1.65rem;
   display: block;
 }
 
-/* Contact: sits at the bottom of the screen when the page is short */
+/* Contact */
 .contact {
   margin-top: auto;
-  padding-top: 2.8em;
+  padding-top: 2.5rem;
   text-align: center;
 }
 
 .contact .label {
-  margin: 0 0 0.6em;
-  font: 700 0.68em/1.4 var(--sans);
+  margin: 0 0 0.6rem;
+  font: 700 0.85rem/1.4 var(--sans);
   letter-spacing: 0.01em;
 }
 
 .icons {
   display: flex;
   justify-content: center;
-  gap: 0.7em;
+  gap: 0.75rem;
 }
 
-/* Both icons share one size and one colour. */
 .icon {
   display: block;
-  width: 1.6em;
-  height: 1.6em;
+  width: 2rem;
+  height: 2rem;
   color: var(--icon);
   text-decoration: none;
   line-height: 0;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
+
 .icon:hover {
   color: var(--icon);
   opacity: 0.82;
   transform: translateY(-1px);
 }
+
 .icon svg {
   display: block;
   width: 100%;
   height: 100%;
 }
+
 .icon .badge { fill: currentColor; }
 .icon .glyph { fill: var(--bg); }
 .icon .glyph-line {
@@ -158,11 +163,11 @@ a:focus-visible {
   stroke-linejoin: round;
 }
 
-/* Gentle entrance */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(0.5em); }
+  from { opacity: 0; transform: translateY(0.45rem); }
   to   { opacity: 1; transform: none; }
 }
+
 .portrait, .text, .divider, .contact {
   animation: rise 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) both;
 }
