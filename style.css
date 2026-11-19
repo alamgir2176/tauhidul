@@ -255,16 +255,16 @@ a:focus-visible {
    ========================================== */
 
 .contact {
-  padding-top: 2.4em;
+  padding-top: 2.2em;
   text-align: center;
 }
 
 
 .contact .label {
-  margin: 0 0 0.45em;
+  margin: 0 0 0.4em;
 
-  font-size: 0.9em;
-  font-weight: 700;
+  font-size: 0.84em;
+  font-weight: 600;
   line-height: 1.3;
   letter-spacing: 0.02em;
 }
@@ -280,7 +280,7 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
 
-  gap: 0.6em;
+  gap: 0.55em;
 }
 
 
@@ -289,13 +289,13 @@ a:focus-visible {
   position: relative;
 
   display: flex;
-  flex: 0 0 1.5em;
+  flex: 0 0 1.3em;
 
   align-items: center;
   justify-content: center;
 
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.3em;
+  height: 1.3em;
 
   margin: 0;
   padding: 0;
@@ -329,7 +329,7 @@ a:focus-visible {
 }
 
 
-/* SVG alignment */
+/* SVG sizing */
 .icon svg {
   display: block;
 
@@ -340,6 +340,16 @@ a:focus-visible {
   padding: 0;
 
   fill: currentColor;
+}
+
+
+/* Optical alignment */
+.icon:first-child svg {
+  transform: translateY(0.04em);
+}
+
+.icon:last-child svg {
+  transform: translateY(-0.02em);
 }
 
 
