@@ -97,6 +97,7 @@ a:focus-visible {
 
 .contact .icon {
   display: inline-block;
+  margin: 0 0.45rem;
   border-bottom: 0;
   line-height: 0;
   transition: opacity 0.15s ease, transform 0.15s ease;
