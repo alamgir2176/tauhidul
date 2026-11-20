@@ -2,6 +2,10 @@
 
 Notable changes to the site, newest first. The version on each page is in `<meta name="site-version">`.
 
+## 2026-11-21
+
+- Email icon now sits inside the blue box like the others, as a small envelope drawn in the same thin line. The three footer symbols are sized and centred to take the same share of their boxes.
+
 ## 2026-11-20
 
 - Header and menu switched off for now, with no empty space left in their place. The README explains how to bring the header back.
