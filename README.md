@@ -27,20 +27,59 @@ Live at <https://tauhidul.vercel.app/>.
 
 ## How the layout works
 
-The page is one composition scaled from the width of the screen. Header, text, photo, spacing and icons are all sized in `em`, and the `em` is 3.6% of the page width (`font-size: 3.6cqw` in `.frame`). A phone and a tablet show the page filling the screen, and a desktop shows it at the largest width (`--max`, 760px) in the middle. The proportions, and the menu, are identical everywhere. The menu is always a plain row of links, with no hamburger button.
+The page is one composition scaled from the width of the screen. Text, photo, spacing and icons are all sized in `em`, and the `em` is 3.6% of the page width (`font-size: 3.6cqw` in `.frame`). A phone and a tablet show the page filling the screen, and a desktop shows it at the largest width (`--max`, 760px) in the middle. The proportions are identical everywhere, including a phone browser's "desktop site" view.
 
 - To make everything bigger or smaller on all screens, change `3.6cqw` (and the matching `3.6vw` and `27.4px` fallback lines just above it).
 - To let the page grow wider on big screens, raise `--max`.
 
+## Header (switched off for now)
+
+The site has no header at the moment, only an empty space where it was (`<div class="head-gap" aria-hidden="true"></div>`, styled in `style.css`). The space is exactly as tall as the header was, so the photo and text don't move. Every page keeps it, so all pages line up.
+
+The name is kept as a hidden heading (`<h1 class="sr-only">`) on the home page, for search engines and screen readers.
+
+**To bring the header back**, replace the `head-gap` div, on every page, with the block below. The styles for it (`.site-header`, `.brand`, `.menu`) are still in `style.css`, so nothing else needs to change. It will look the same on desktop, tablet, phone and a phone browser's desktop view: a thin line with a small bold name on the left and a plain row of links on the right, with a fine hairline underneath. There is never a hamburger button.
+
+```html
+<header class="site-header">
+  <a class="brand" href="/">Md Tauhidul Islam</a>
+  <nav class="menu" aria-label="Main">
+    <ul>
+      <li><a href="/" aria-current="page">Home</a></li>
+      <li><a href="/writing">Writing</a></li>
+    </ul>
+  </nav>
+</header>
+```
+
+Mark the current page's link with `aria-current="page"` and add one `<li>` per page. The hidden `<h1>` can stay when the header comes back; the header's name link is not a heading, so the page keeps exactly one.
+
 ## Adding a page
 
-1. Copy `404.html` to a new file, for example `writing.html`, and change the `<title>`.
-2. Replace the `<main>` block with your content. For plain paragraphs use `<section class="text"><p>...</p></section>`. For a list of items use the `.list` pattern described at the bottom of `style.css`.
-3. Add one line to the menu in **every** page's header: `<li><a href="/writing">Writing</a></li>`. Mark the current page's link with `aria-current="page"`.
-4. Add the new address to `sitemap.xml`.
-5. Commit. On Vercel the page is available at `/writing` (without `.html`).
+1. Copy `404.html` to a new file, for example `writing.html`. Change the `<title>`, and in `<main>` change `class="page center"` to `class="page"` (the `center` part is only for the 404 message).
+2. Replace the content of `<main>`. For plain paragraphs use `<section class="text"><p>...</p></section>`. For a list of items use the `.list` pattern described at the bottom of `style.css`.
+3. Keep the footer as it is: **every page except the home page has the home icon first**, then LinkedIn and email, with no "Contact" label. The home page has no home icon.
+4. Link to the new page from the home page's text (see below), and add its address to `sitemap.xml`.
+5. Bump `site-version` and add a line to `CHANGELOG.md`, then commit. On Vercel the page is available at `/writing` (without `.html`).
 
-The header and footer are repeated in each page because there is no build step. If the site grows to many pages, a static-site generator can share them; until then, copy and edit keeps things simple.
+The footer is repeated in each page because there is no build step. If the site grows to many pages, a static-site generator can share it; until then, copy and edit keeps things simple.
+
+### How to link to pages without crowding the site
+
+- **One to three pages:** link them inside the home page's own words, as plain underlined links, for example "I also write a few notes." This feels like part of the writing, not a menu.
+- **More than that:** make one quiet index page (for example `/more`) in the `.list` style, and link only that from the home page. The home page stays the same however many pages there are.
+- **Icons are only for things everyone recognises:** home, LinkedIn, email and, at most, one more profile. Keep the row to four icons or fewer, and don't make icons for pages: nobody can guess what an icon for "Writing" means.
+
+The home icon is the same blue box as the others, with the house drawn in the same thin line as the envelope:
+
+```html
+<a class="icon" href="/" aria-label="Home">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <rect x="1" y="2" width="22" height="20" rx="1.6"/>
+    <path class="cut" d="M5.2 12.4 12 6.2l6.8 6.2M7.6 10.8V18h8.8v-7.2M10.4 18v-4.2h3.2V18"/>
+  </svg>
+</a>
+```
 
 ## Photo
 

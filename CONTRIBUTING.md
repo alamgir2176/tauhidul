@@ -18,6 +18,6 @@ If you want to build something similar for yourself, you're welcome to be inspir
 
 1. Open the site locally (see the README) and check it on a narrow and a wide window.
 2. Check any new image for hidden information such as camera model, time or place.
-3. If you add a page, also add it to the menu, to `sitemap.xml` and to the 404 page's menu.
+3. If you add a page, link it from the home page's text (see the README, "Adding a page"), keep the footer with the home icon, and add it to `sitemap.xml`.
 4. Change `site-version` in the `<head>` of every page so you can tell which version is live.
 5. Add a line to [CHANGELOG.md](CHANGELOG.md).

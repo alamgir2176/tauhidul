@@ -4,6 +4,9 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-20
 
+- Header and menu switched off for now; the same amount of empty space stays at the top so nothing moves. The README explains how to bring the header back.
+- Pages other than the home page get a home icon first in the footer; the "Contact" label is gone.
+- The 404 page's email icon now has the same size as on the home page.
 - Longer link-preview description (LinkedIn asks for at least 100 characters).
 - Tab icon, home-screen icons and the share picture now use the site's own typeface, Cormorant Garamond.
 - The font (Cormorant Garamond) now comes from this site instead of Google, so nothing is loaded from third parties.
