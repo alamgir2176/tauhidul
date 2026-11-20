@@ -16,7 +16,11 @@ Live at <https://tauhidul.vercel.app/>.
 | `vercel.json` | Security headers and clean addresses (used by Vercel; other hosts ignore it) |
 | `robots.txt`, `sitemap.xml` | Search engine instructions and the page list |
 | `LICENSE` | Terms of use |
+| `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md` | What kind of help is welcome, and how to behave |
 | `SECURITY.md` | How to report a problem |
+| `CHANGELOG.md` | A short history of changes |
+| `.github/` | Issue and pull request templates |
+| `.editorconfig`, `.gitattributes`, `.gitignore` | Editor and git settings |
 
 ## How the layout works
 
