@@ -1,0 +1,24 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+
+# Hosting tools
+.vercel/
+.netlify/
+node_modules/
+
+# Private files must never be committed
+.env
+.env.*
+*.pem
+*.key
+
+# Photos straight from a phone or camera carry hidden location and device
+# information. Add only a cleaned copy (see README, "Photo").
+IMG_*
+*.heic
+*.HEIC
