@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-20
 
+- Longer link-preview description (LinkedIn asks for at least 100 characters).
 - Tab icon, home-screen icons and the share picture now use the site's own typeface, Cormorant Garamond.
 - The font (Cormorant Garamond) now comes from this site instead of Google, so nothing is loaded from third parties.
 - New tab icon, phone home-screen icons and a manifest, so the site installs with a proper icon.
