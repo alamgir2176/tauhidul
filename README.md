@@ -12,7 +12,9 @@ Live at <https://tauhidul.vercel.app/>.
 | `404.html` | The page shown for addresses that don't exist |
 | `style.css` | The design for every page. Colors and fonts are at the top, in the `:root` block |
 | `photo.jpg` | The portrait shown at the top |
-| `favicon.svg` | The browser tab icon |
+| `favicon.svg`, `favicon.ico` | The browser tab icon (the `.ico` is for older browsers) |
+| `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `site.webmanifest` | The icon and name shown when the site is added to a phone's home screen |
+| `og.png` | The picture shown when a link to the site is shared (1200 × 630) |
 | `vercel.json` | Security headers and clean addresses (used by Vercel; other hosts ignore it) |
 | `robots.txt`, `sitemap.xml` | Search engine instructions and the page list |
 | `LICENSE` | Terms of use |
@@ -43,19 +45,24 @@ The header and footer are repeated in each page because there is no build step. 
 
 - The portrait is a CSS background (`.portrait` in `style.css`), not an `<img>`, so it can't be saved by pressing and holding on a phone or by dragging it out. This stops casual saving only: anyone can still take a screenshot or find the file through the browser's developer tools.
 - Use a **6:7 portrait** image (for example 1100 × 1283 px), saved as a real JPEG with location and camera information removed. The current file has none. Check any new photo before adding it, because phone photos usually carry the camera model, the time and sometimes the place.
-- `index.html` also lists `photo.jpg` for link previews (`og:image`). Remove that line if you don't want the photo to appear when the site is shared.
+- Link previews use `og.png` (a plain card with the name), not the photo, so the portrait isn't passed around when the link is shared.
 
 ## Security and fallbacks
 
 - `vercel.json` sets a strict Content-Security-Policy and related headers. The same policy is also in a `<meta>` tag in each page, so it applies on hosts that ignore `vercel.json`.
 - The site loads nothing from third parties except the Google Fonts stylesheet and font files. It sets no cookies and uses no analytics.
 - The page works without JavaScript (it uses none), without the web font (a similar local serif is used), and in browsers without container units (a viewport-based size is used instead).
+- The Content-Security-Policy also lets the page read its own `site.webmanifest` (`manifest-src 'self'`).
 - If you add anything new (a script, an embed, another font host), the Content-Security-Policy in `vercel.json` and in every `.html` file has to allow it, otherwise the browser will block it.
 
 ## Privacy
 
 - The only contact details on the site are the LinkedIn profile and the email address in the footer. No phone number, home address or similar details are published.
 - Before adding a file, check it for hidden information (photo metadata, document properties). Files in this repository are public while the repository is public.
+
+## Icons and the share picture
+
+The "T" icon is a Crimson Text capital (SIL Open Font License) drawn as a path, so it looks the same on every device. The share picture `og.png` uses the same typeface. To change the wording on the share picture, edit and re-export it at 1200 × 630, then raise `site-version`. Social apps keep old previews for a while; the Facebook Sharing Debugger and LinkedIn Post Inspector can refresh them.
 
 ## Checking which version is live
 

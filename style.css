@@ -110,7 +110,14 @@ body {
 }
 
 
-/* Brand */
+/* Brand: the name is the page's main heading (for search engines and screen
+   readers) but looks exactly like the plain link it replaced. */
+.site-title {
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
 .site-header .brand {
   color: var(--text);
   font-weight: 600;
