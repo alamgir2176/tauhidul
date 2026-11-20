@@ -76,7 +76,7 @@ The home icon is the same blue box as the others, with the house drawn in the sa
 <a class="icon" href="/" aria-label="Home">
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <rect x="1" y="2" width="22" height="20" rx="1.6"/>
-    <path class="cut" d="M5.61 12.38 L12 6.55 L18.39 12.38 M7.86 10.88 L7.86 17.65 L16.14 17.65 L16.14 10.88 M10.5 17.65 L10.5 13.7 L13.5 13.7 L13.5 17.65"/>
+    <path class="cut" d="M5.61 12.38 L12 6.55 L18.39 12.38 M7.86 10.88 L7.86 17.65 L10.5 17.65 L10.5 13.7 L13.5 13.7 L13.5 17.65 L16.14 17.65 L16.14 10.88"/>
   </svg>
 </a>
 ```

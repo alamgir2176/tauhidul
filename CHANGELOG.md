@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-21
 
+- The house icon now has an open doorway (no line under the door), like the familiar home icon; lighter and clearer at small size.
 - Email icon now sits inside the blue box like the others, as a small envelope drawn in the same thin line. The three footer symbols are sized and centred to take the same share of their boxes.
 
 ## 2026-11-20
