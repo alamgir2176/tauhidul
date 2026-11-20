@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-20
 
+- Tab icon, home-screen icons and the share picture now use the site's own typeface, Cormorant Garamond.
 - The font (Cormorant Garamond) now comes from this site instead of Google, so nothing is loaded from third parties.
 - New tab icon, phone home-screen icons and a manifest, so the site installs with a proper icon.
 - A plain share picture (`og.png`) for link previews; the name is now the page's main heading.

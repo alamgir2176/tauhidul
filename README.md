@@ -67,7 +67,7 @@ Cormorant Garamond is served from `fonts/` as small `.woff` files that hold only
 
 ## Icons and the share picture
 
-The "T" icon is a Crimson Text capital (SIL Open Font License) drawn as a path, so it looks the same on every device. The share picture `og.png` uses the same typeface. To change the wording on the share picture, edit and re-export it at 1200 × 630, then raise `site-version`. Social apps keep old previews for a while; the Facebook Sharing Debugger and LinkedIn Post Inspector can refresh them.
+The "T" icon is a Cormorant Garamond capital drawn as a path, so it looks the same on every device. The share picture `og.png` uses the same typeface as the site. To change the wording on the share picture, edit and re-export it at 1200 × 630, then raise `site-version`. Social apps keep old previews for a while; the Facebook Sharing Debugger and LinkedIn Post Inspector can refresh them.
 
 ## Checking which version is live
 
