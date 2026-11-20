@@ -143,13 +143,6 @@ body {
 }
 
 
-/* Reserved space where the header used to be. It is exactly as tall as the
-   header (text line plus its hairline), so nothing below it moves. To bring the
-   header back, replace this <div> with the header markup from the README. */
-.head-gap {
-  height: calc(1.2945em + 1px);
-}
-
 /* Text for search engines and screen readers only: the page's main heading,
    not shown on screen. */
 .sr-only {

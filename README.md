@@ -34,11 +34,11 @@ The page is one composition scaled from the width of the screen. Text, photo, sp
 
 ## Header (switched off for now)
 
-The site has no header at the moment, only an empty space where it was (`<div class="head-gap" aria-hidden="true"></div>`, styled in `style.css`). The space is exactly as tall as the header was, so the photo and text don't move. Every page keeps it, so all pages line up.
+The site has no header at the moment: no name, no menu and no line at the top. Nothing is reserved for it, so the photo sits comfortably near the top on its own.
 
 The name is kept as a hidden heading (`<h1 class="sr-only">`) on the home page, for search engines and screen readers.
 
-**To bring the header back**, replace the `head-gap` div, on every page, with the block below. The styles for it (`.site-header`, `.brand`, `.menu`) are still in `style.css`, so nothing else needs to change. It will look the same on desktop, tablet, phone and a phone browser's desktop view: a thin line with a small bold name on the left and a plain row of links on the right, with a fine hairline underneath. There is never a hamburger button.
+**To bring the header back**, paste the block below at the very top of `.frame`, just above `<main>`, on every page. Nothing else needs to change: the page makes room for it by itself, and the photo and text move down by exactly the header's height. The styles for it (`.site-header`, `.brand`, `.menu`) are still in `style.css`. It looks the same on desktop, tablet, phone and a phone browser's desktop view: a thin line with a small bold name on the left and a plain row of links on the right, with a fine hairline underneath. There is never a hamburger button.
 
 ```html
 <header class="site-header">
