@@ -23,6 +23,39 @@
 }
 
 
+/* Cormorant Garamond, served from this site (licence: fonts/OFL.txt). The files
+   hold only the letters, numbers and punctuation the site needs, so they stay
+   small. */
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/CormorantGaramond-regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/CormorantGaramond-medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/CormorantGaramond-semibold.woff") format("woff");
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/CormorantGaramond-bold.woff") format("woff");
+}
+
+
 /* Local font fallback */
 @font-face {
   font-family: "Cormorant Fallback";

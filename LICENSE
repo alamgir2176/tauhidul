@@ -8,6 +8,6 @@ used to make another work without his written permission.
 Viewing the website and reading the files for personal learning is welcome.
 Using them as the basis of another site is not permitted.
 
-The fonts loaded from Google Fonts (Cormorant Garamond) are licensed
-separately, under the SIL Open Font License, and are not covered by this
-notice.
+The fonts in the fonts/ folder (Cormorant Garamond) are licensed
+separately, under the SIL Open Font License; see fonts/OFL.txt. They are
+not covered by this notice.

@@ -10,6 +10,7 @@ Live at <https://tauhidul.vercel.app/>.
 | --- | --- |
 | `index.html` | The home page: text, links and page metadata |
 | `404.html` | The page shown for addresses that don't exist |
+| `fonts/` | Cormorant Garamond (regular, medium, semibold, bold) and its licence, `OFL.txt` |
 | `style.css` | The design for every page. Colors and fonts are at the top, in the `:root` block |
 | `photo.jpg` | The portrait shown at the top |
 | `favicon.svg`, `favicon.ico` | The browser tab icon (the `.ico` is for older browsers) |
@@ -50,15 +51,19 @@ The header and footer are repeated in each page because there is no build step. 
 ## Security and fallbacks
 
 - `vercel.json` sets a strict Content-Security-Policy and related headers. The same policy is also in a `<meta>` tag in each page, so it applies on hosts that ignore `vercel.json`.
-- The site loads nothing from third parties except the Google Fonts stylesheet and font files. It sets no cookies and uses no analytics.
-- The page works without JavaScript (it uses none), without the web font (a similar local serif is used), and in browsers without container units (a viewport-based size is used instead).
+- The site loads nothing from third parties: the font is served from this repository too, so no visitor's address is sent to Google. It sets no cookies and uses no analytics.
+- The page works without JavaScript (it uses none), without the web font (a similar serif already on the device is used), and in browsers without container units (a viewport-based size is used instead).
 - The Content-Security-Policy also lets the page read its own `site.webmanifest` (`manifest-src 'self'`).
-- If you add anything new (a script, an embed, another font host), the Content-Security-Policy in `vercel.json` and in every `.html` file has to allow it, otherwise the browser will block it.
+- If you add anything new (a script, an embed, a font from another host), the Content-Security-Policy in `vercel.json` and in every `.html` file has to allow it, otherwise the browser will block it.
 
 ## Privacy
 
 - The only contact details on the site are the LinkedIn profile and the email address in the footer. No phone number, home address or similar details are published.
 - Before adding a file, check it for hidden information (photo metadata, document properties). Files in this repository are public while the repository is public.
+
+## Fonts
+
+Cormorant Garamond is served from `fonts/` as small `.woff` files that hold only the Latin letters, numbers and common punctuation. If a page ever needs other characters (for example accented capitals beyond Latin-1, or another script), the files need to be re-made from the full fonts at <https://fonts.google.com/specimen/Cormorant+Garamond>, or those characters will show in the fallback serif. When you change fonts, keep `OFL.txt` next to them.
 
 ## Icons and the share picture
 
