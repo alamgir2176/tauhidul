@@ -394,17 +394,13 @@ a:focus-visible {
 }
 
 
-/* The symbols are thin lines with square corners in the icon colour, with no box behind them. */
-.icon .cut {
+/* Fold lines of the envelope: thin lines in the page colour, drawn over the blue shape. */
+.icon .fold {
   fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: butt;
-  stroke-linejoin: miter;
-}
-/* The dot of the "i" in the LinkedIn icon: a small filled circle. */
-.icon .dotfill {
-  fill: currentColor;
+  stroke: var(--bg);
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
