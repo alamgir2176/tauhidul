@@ -4,7 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-21
 
-- Added `AUDIT.md`, a full audit of the site with findings and advice (live headers confirmed A+ on securityheaders.com; the old Netlify copy scored D and is to be deleted). README now gives the correct widest size (1100px, as in the CSS).
+- Added `AUDIT.md`, a full audit of the site with findings and advice (live headers confirmed: A+ on securityheaders.com and A+, 135/100, on the MDN HTTP Observatory). README now gives the correct widest size (1100px, as in the CSS).
 - `scripts/check-pages.py` also checks that the site's own address is the same in every page, `robots.txt` and `sitemap.xml`; the README has a checklist for moving to another host or a custom domain.
 - Added `scripts/check-pages.py`, a small check that every page has the same footer and home icon, the same version and security policy, working links and a sitemap entry. Run it before publishing.
 - The house icon's corners (roof peak, door, wall bottoms) are softly rounded, to match the rounded letters and the envelope.

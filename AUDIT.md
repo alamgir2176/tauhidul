@@ -43,7 +43,7 @@ I read every file in the repository, ran the site locally (`python3 -m http.serv
 
 I am an AI assistant, not a professional auditor, and this is not a penetration test. Things I **could not** do:
 
-- **Check the live server.** My workspace cannot reach the live site, so I read the security headers from `vercel.json` but could not confirm that Vercel sends them. The owner then checked at <https://securityheaders.com> on 21 November 2026: the Vercel site scores **A+**, and the old Netlify copy scores **D** (see S3). The Mozilla Observatory (<https://observatory.mozilla.org>) is a good second test.
+- **Check the live server.** My workspace cannot reach the live site, so I read the security headers from `vercel.json` but could not confirm that Vercel sends them. The owner then tested the live site on 21 November 2026: <https://securityheaders.com> gives **A+**, and the MDN HTTP Observatory (<https://developer.mozilla.org/en-US/observatory>) gives **A+ with a score of 135 / 100 and 12 of 12 tests passed**. Those two results confirm that the live headers match `vercel.json`.
 - **Run Lighthouse or an HTML validator.** I measured the same things by hand (sizes, contrast, text size, overflow), but a tool report would be a good second opinion. Chrome's built-in Lighthouse (developer tools) is free.
 - **Test on real phones, a screen reader, or older browsers.** I tested keyboard order and zoom, not VoiceOver or TalkBack.
 - **Judge the account side** (GitHub, Vercel, domain, email). You told me these are secured, and I took that as given.
@@ -71,10 +71,9 @@ The HTML, CSS and `vercel.json` for anything that runs code, takes input, loads 
 | --- | --- | --- | --- |
 | S1 | Low | The email address is written in plain `mailto:`, so spam robots can collect it. This cannot harm the site, only your inbox. | Accept it, or use a separate address for the site. Hiding it properly needs JavaScript, which would cost more than it saves. |
 | S2 | Info | On Vercel, files such as `README.md`, `CHANGELOG.md` and `LICENSE` are also served as web pages. They hold nothing secret, but they describe how the site is built. `scripts/` and this audit are hidden by `.vercelignore`. | Optional: add the other documents to `.vercelignore`. |
-| S3 | Info | The same site was also built on Netlify, with different headers. The owner's check shows it scores **D** on securityheaders.com, against **A+** for the Vercel site. | The owner plans to delete that site and its link. Once it is gone, nothing more is needed. |
-| S4 | Info | `Strict-Transport-Security` includes `includeSubDomains`. On a custom domain this makes every subdomain require HTTPS. | Fine if all subdomains support HTTPS. Know it before adding one that does not. |
-| S5 | Info | `frame-ancestors` cannot be set from a `<meta>` tag, only by a real header. On a host without headers, `X-Frame-Options` and `frame-ancestors` are lost. | Set them in `_headers` or the host's settings (section 11). |
-| S6 | Info | When the old hosting project is deleted, a DNS record that still points to it lets a stranger claim the address ("subdomain takeover"). | Remove the DNS record when you remove the project. |
+| S3 | Info | `Strict-Transport-Security` includes `includeSubDomains`. On a custom domain this makes every subdomain require HTTPS. | Fine if all subdomains support HTTPS. Know it before adding one that does not. |
+| S4 | Info | `frame-ancestors` cannot be set from a `<meta>` tag, only by a real header. On a host without headers, `X-Frame-Options` and `frame-ancestors` are lost. | Set them in `_headers` or the host's settings (section 11). |
+| S5 | Info | When the old hosting project is deleted, a DNS record that still points to it lets a stranger claim the address ("subdomain takeover"). | Remove the DNS record when you remove the project. |
 
 ### Account side (outside the code)
 
@@ -244,8 +243,8 @@ The full step-by-step list is in the README under "Moving to another host or a c
 | --- | --- | --- | --- |
 | 1 | Give the photo caption and copyright line a minimum size (A1) | The only real readability problem | Yes (slightly bends "same on all screens") |
 | 2 | Make the repository private; I can first clean the history of the old phone photos (P1) | Removes device information from public view | Yes (history rewrite) |
-| 3 | After going live on the new domain, check the live headers again on securityheaders.com (the Vercel site scored A+) and run `python3 scripts/check-pages.py` | Other hosts do not read `vercel.json` | No |
-| 4 | Delete the old Netlify site (scored D; the owner plans to), and remove stale DNS records when moving (S6) | Avoid a weaker duplicate and takeover risk | No |
+| 3 | After going live on the new domain, check the live headers again on securityheaders.com (the Vercel site scores A+ on both) and run `python3 scripts/check-pages.py` | Other hosts do not read `vercel.json` | No |
+| 4 | When moving hosts, remove DNS records that still point to the old project (S5) | Avoids address takeover | No |
 | 5 | Deepen the blue a little (A3) and darken the link underline (A4) | Contrast guidelines | Yes (colour choices) |
 | 6 | Re-export the photo at about 800 px (F1) | Halves the biggest file | Yes (check the look) |
 | 7 | Add `.woff2` fonts and long cache times (F2, F3) | Small speed gain | No |
