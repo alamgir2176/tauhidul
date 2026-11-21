@@ -19,6 +19,7 @@ Live at <https://tauhidul.vercel.app/>.
 | `vercel.json` | Security headers and clean addresses (used by Vercel; other hosts ignore it) |
 | `scripts/check-pages.py` | A small check that all pages match (see "Checking the pages"). Not published (`.vercelignore`) |
 | `robots.txt`, `sitemap.xml` | Search engine instructions and the page list |
+| `AUDIT.md` | A full audit of the site (security, privacy, accessibility, speed, search) with advice. Not published (`.vercelignore`) |
 | `LICENSE` | Terms of use |
 | `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md` | What kind of help is welcome, and how to behave |
 | `SECURITY.md` | How to report a problem |
@@ -28,7 +29,7 @@ Live at <https://tauhidul.vercel.app/>.
 
 ## How the layout works
 
-The page is one composition scaled from the width of the screen. Text, photo, spacing and icons are all sized in `em`, and the `em` is 3.6% of the page width (`font-size: 3.6cqw` in `.frame`). A phone and a tablet show the page filling the screen, and a desktop shows it at the largest width (`--max`, 760px) in the middle. The proportions are identical everywhere, including a phone browser's "desktop site" view.
+The page is one composition scaled from the width of the screen. Text, photo, spacing and icons are all sized in `em`, and the `em` is 3.6% of the page width (`font-size: 3.6cqw` in `.frame`). A phone and a tablet show the page filling the screen, and a desktop shows it at the largest width (`--max`, 1100px) in the middle. The proportions are identical everywhere, including a phone browser's "desktop site" view.
 
 - To make everything bigger or smaller on all screens, change `3.6cqw` (and the matching `3.6vw` and `27.4px` fallback lines just above it).
 - To let the page grow wider on big screens, raise `--max`.
