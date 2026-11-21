@@ -13,7 +13,7 @@
   --rule: #c8c2b6;
   --hair: #e6e1d6;
   --mark: #2b2a27;
-  --icon: #0099ff;
+  --icon: #4f6f8c;
 
   --max: 1100px;
 
@@ -329,22 +329,22 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
 
-  gap: 0.55em;
+  gap: 0.45em;
 }
 
 
-/* Equal icon boxes */
+/* Equal icon boxes (the box is only the size; nothing is drawn around the symbol) */
 .icon {
   position: relative;
 
   display: flex;
-  flex: 0 0 1.3em;
+  flex: 0 0 1.7em;
 
   align-items: center;
   justify-content: center;
 
-  width: 1.3em;
-  height: 1.3em;
+  width: 1.7em;
+  height: 1.7em;
 
   margin: 0;
   padding: 0;
@@ -394,17 +394,17 @@ a:focus-visible {
 }
 
 
-/* Email icon cutout */
+/* The symbols are thin lines in the icon colour, with no box behind them. */
 .icon .cut {
   fill: none;
-  stroke: var(--bg);
-  stroke-width: 1.5;
+  stroke: currentColor;
+  stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-/* The dot of the "i" in the LinkedIn icon: a filled circle in the page colour. */
+/* The dot of the "i" in the LinkedIn icon: a filled circle. */
 .icon .dotfill {
-  fill: var(--bg);
+  fill: currentColor;
 }
 
 
