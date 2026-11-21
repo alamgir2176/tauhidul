@@ -402,7 +402,7 @@ a:focus-visible {
   stroke-linecap: butt;
   stroke-linejoin: miter;
 }
-/* The dot of the "i" in the LinkedIn icon: a small filled square. */
+/* The dot of the "i" in the LinkedIn icon: a small filled circle. */
 .icon .dotfill {
   fill: currentColor;
 }

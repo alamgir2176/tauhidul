@@ -77,7 +77,7 @@ The icons are thin lines with square corners in blue (`--icon` in `style.css`), 
 ```html
 <a class="icon" href="/" aria-label="Home">
   <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path class="cut" d="M5.61 12.01 L12 7.41 L18.39 12.01 M7.86 10.9 L7.86 16.6 L10.5 16.6 L10.5 13.3 L13.5 13.3 L13.5 16.6 L16.14 16.6 L16.14 10.9"/>
+    <path class="cut" d="M5.61 12.01 L12 7.41 L18.39 12.01 M7.86 10.9 L7.86 16.6 L16.14 16.6 L16.14 10.9"/>
   </svg>
 </a>
 ```

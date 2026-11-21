@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-21
 
+- Footer icons redrawn to belong together: the house is now the plain house shape (no door), the "i" has a round dot, and the "n" has a flat top like the real LinkedIn "in". All three keep the same thin line, the same height and the same top and bottom line. **To go back** to the previous drawing, use commit `9d4aed8` (site version `2026-11-21-j`).
 - The footer icons are blue again (`#0099ff`, as before) instead of slate blue, still as thin lines without boxes. **To go back** to the slate blue (`#4f6f8c`), use commit `4e490b4` (site version `2026-11-21-i`), or change `--icon` in `style.css`.
 - The three footer icons now share the same height and the same top and bottom line (the house is a little lower and wider-set, the envelope and the letters nudged by a fraction of a pixel). **To go back** to the previous drawing, use commit `44e3a77` (site version `2026-11-21-h`).
 - The three footer icons have square corners (house, envelope and the dot of the "i") instead of rounded ones, and sit closer together as one small group. **To go back** to the rounded, wider-spaced icons, use commit `ec8382b` (site version `2026-11-21-g`): `git checkout ec8382b -- index.html 404.html style.css README.md`, then raise `site-version`.
