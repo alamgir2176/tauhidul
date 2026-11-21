@@ -4,7 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-21
 
-- Footer icons are now thin lines in a quiet slate blue (`#4f6f8c`) with no box behind them, a little larger, so they sit more calmly on the page and meet the contrast guideline. **To go back** to the bright blue boxes, use the git tag `before-thin-icons` (site version `2026-11-21-f`, commit 20548f8): `git checkout before-thin-icons -- index.html 404.html style.css README.md`, then raise `site-version`.
+- Footer icons are now thin lines in a quiet slate blue (`#4f6f8c`) with no box behind them, a little larger, so they sit more calmly on the page and meet the contrast guideline. **To go back** to the bright blue boxes, use commit `20548f8` (site version `2026-11-21-f`): `git checkout 20548f8 -- index.html 404.html style.css README.md`, then raise `site-version`.
 - Home page text: the reading (Western and Indian thought, the philosophy of Bengal, logic) now sits in the paragraph about studying philosophy, so the questions that follow it lead naturally into the paragraph about technology; a few phrases made plainer.
 - Added `AUDIT.md`, a full audit of the site with findings and advice (live headers confirmed: A+ on securityheaders.com and A+, 135/100, on the MDN HTTP Observatory). README now gives the correct widest size (1100px, as in the CSS).
 - `scripts/check-pages.py` also checks that the site's own address is the same in every page, `robots.txt` and `sitemap.xml`; the README has a checklist for moving to another host or a custom domain.
