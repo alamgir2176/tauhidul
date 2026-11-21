@@ -329,7 +329,7 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
 
-  gap: 0.45em;
+  gap: 0.1em;
 }
 
 
@@ -394,15 +394,15 @@ a:focus-visible {
 }
 
 
-/* The symbols are thin lines in the icon colour, with no box behind them. */
+/* The symbols are thin lines with square corners in the icon colour, with no box behind them. */
 .icon .cut {
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
 }
-/* The dot of the "i" in the LinkedIn icon: a filled circle. */
+/* The dot of the "i" in the LinkedIn icon: a small filled square. */
 .icon .dotfill {
   fill: currentColor;
 }

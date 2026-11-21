@@ -72,12 +72,12 @@ The footer is repeated in each page because there is no build step. If the site 
 - **More than that:** make one quiet index page (for example `/more`) in the `.list` style, and link only that from the home page. The home page stays the same however many pages there are.
 - **Icons are only for things everyone recognises:** home, LinkedIn, email and, at most, one more profile. Keep the row to four icons or fewer, and don't make icons for pages: nobody can guess what an icon for "Writing" means.
 
-The icons are thin lines in a quiet slate blue (`--icon` in `style.css`), with no box behind them. The house is drawn in the same thin line as the envelope and the letters, and all three symbols are sized and centred the same way, so keep that if you change one:
+The icons are thin lines with square corners in a quiet slate blue (`--icon` in `style.css`), with no box behind them and only a small gap between them. The house is drawn in the same thin line as the envelope and the letters, and all three symbols are sized and centred the same way, so keep that if you change one:
 
 ```html
 <a class="icon" href="/" aria-label="Home">
   <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path class="cut" d="M5.61 12.38 L11.34 7.16Q12 6.55 12.66 7.16 L18.39 12.38 M7.86 10.88 L7.86 16.75Q7.86 17.65 8.76 17.65 L9.6 17.65Q10.5 17.65 10.5 16.75 L10.5 14.6Q10.5 13.7 11.4 13.7 L12.6 13.7Q13.5 13.7 13.5 14.6 L13.5 16.75Q13.5 17.65 14.4 17.65 L15.24 17.65Q16.14 17.65 16.14 16.75 L16.14 10.88"/>
+    <path class="cut" d="M5.61 12.38 L12 6.56 L18.39 12.38 M7.86 10.88 L7.86 17.65 L10.5 17.65 L10.5 13.7 L13.5 13.7 L13.5 17.65 L16.14 17.65 L16.14 10.88"/>
   </svg>
 </a>
 ```
