@@ -72,7 +72,7 @@ The footer is repeated in each page because there is no build step. If the site 
 - **More than that:** make one quiet index page (for example `/more`) in the `.list` style, and link only that from the home page. The home page stays the same however many pages there are.
 - **Icons are only for things everyone recognises:** home, LinkedIn, email and, at most, one more profile. Keep the row to four icons or fewer, and don't make icons for pages: nobody can guess what an icon for "Writing" means.
 
-The icons are thin lines with square corners in a quiet slate blue (`--icon` in `style.css`), with no box behind them and only a small gap between them. The house is drawn in the same thin line as the envelope and the letters, and all three symbols are sized and centred the same way, so keep that if you change one:
+The icons are thin lines with square corners in blue (`--icon` in `style.css`), with no box behind them and only a small gap between them. The house is drawn in the same thin line as the envelope and the letters, and all three symbols are sized and centred the same way, so keep that if you change one:
 
 ```html
 <a class="icon" href="/" aria-label="Home">
