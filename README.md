@@ -17,6 +17,7 @@ Live at <https://tauhidul.vercel.app/>.
 | `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `site.webmanifest` | The icon and name shown when the site is added to a phone's home screen |
 | `og.png` | The picture shown when a link to the site is shared (1200 × 630) |
 | `vercel.json` | Security headers and clean addresses (used by Vercel; other hosts ignore it) |
+| `scripts/check-pages.py` | A small check that all pages match (see "Checking the pages"). Not published (`.vercelignore`) |
 | `robots.txt`, `sitemap.xml` | Search engine instructions and the page list |
 | `LICENSE` | Terms of use |
 | `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md` | What kind of help is welcome, and how to behave |
@@ -107,6 +108,16 @@ Cormorant Garamond is served from `fonts/` as small `.woff` files that hold only
 ## Icons and the share picture
 
 The "T" icon is a Cormorant Garamond capital (bold, the same family as the site; the thin text weight turned faint and blurry at icon sizes) drawn as a path, so it looks the same on every device. It is dark (`#1d1c1a`) on the site's off-white (`#faf8f4`), with a fine hairline (`#c8c2b6`) round the browser-tab version so the pale square doesn't disappear into a light tab. The share picture `og.png` uses the same typeface as the site. To change the wording on the share picture, edit and re-export it at 1200 × 630, then raise `site-version`. Social apps keep old previews for a while; the Facebook Sharing Debugger and LinkedIn Post Inspector can refresh them.
+
+## Checking the pages
+
+Before pushing, run this in the project folder:
+
+```
+python3 scripts/check-pages.py
+```
+
+It changes nothing. It checks that every page other than the home page has the home icon first in the footer, that the home icon is identical everywhere, that `site-version` and the security policy match on all pages, that the header is on every page or none, that linked files exist, and that `sitemap.xml` lists every page. It prints "All good" or a list of what to fix. It needs only Python 3.
 
 ## Checking which version is live
 

@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-21
 
+- Added `scripts/check-pages.py`, a small check that every page has the same footer and home icon, the same version and security policy, working links and a sitemap entry. Run it before publishing.
 - The house icon's corners (roof peak, door, wall bottoms) are softly rounded, to match the rounded letters and the envelope.
 - Icon letter made bolder and larger (still Cormorant Garamond) so it stays sharp and clear on a phone's home screen and in browser tabs; each icon size is drawn at its own size instead of shrunk from a large one.
 - Tab icon and home-screen icons are now a dark "T" on the site's off-white instead of off-white on dark, still in Cormorant Garamond.

@@ -21,3 +21,4 @@ If you want to build something similar for yourself, you're welcome to be inspir
 3. If you add a page, link it from the home page's text (see the README, "Adding a page"), keep the footer with the home icon, and add it to `sitemap.xml`.
 4. Change `site-version` in the `<head>` of every page so you can tell which version is live.
 5. Add a line to [CHANGELOG.md](CHANGELOG.md).
+6. Run `python3 scripts/check-pages.py`; it should say "All good".
