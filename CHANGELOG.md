@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-21
 
+- Footer icons are back to the thin-line set (plain house with roof, "in" with a round arch, envelope), with the envelope made a little narrower (13.0 wide instead of 14.1, the same width as the "in") so it no longer stands out. The filled icons tried just before are in commit `dd7670b` (site version `2026-11-21-m`).
 - Footer icons are now small filled blue shapes (house, envelope with fold lines, and an "in" in the style of the LinkedIn mark) instead of thin lines. Same blue (`#0099ff`), no box, same height and same top and bottom line. **To go back** to the thin-line icons, use commit `d4802af` (site version `2026-11-21-l`).
 - The "n" in the LinkedIn icon is redrawn like the real logo's: a smooth round arch rising from the stem, with its top level with the top of the "i". Same thin line as the other icons. **To go back**, use commit `a1b444c` (site version `2026-11-21-k`).
 - Footer icons redrawn to belong together: the house is now the plain house shape (no door), the "i" has a round dot, and the "n" has a flat top like the real LinkedIn "in". All three keep the same thin line, the same height and the same top and bottom line. **To go back** to the previous drawing, use commit `9d4aed8` (site version `2026-11-21-j`).
