@@ -174,10 +174,31 @@ if sm.exists():
 else:
     problem("sitemap.xml", "is missing")
 
+# 8. One address for the site everywhere (canonical, share picture, structured data,
+#    robots.txt, sitemap.xml). Useful when the site moves to a custom domain.
+own = {}
+for n, d in data.items():
+    h = d["html"]
+    for pat in (r'rel="canonical" href="https?://([^/"]+)',
+                r'property="og:url" content="https?://([^/"]+)',
+                r'property="og:image" content="https?://([^/"]+)',
+                r'name="twitter:image" content="https?://([^/"]+)',
+                r'"url":\s*"https?://([^/"]+)'):
+        for host in re.findall(pat, h):
+            own.setdefault(host, []).append(n)
+for fname in ("robots.txt", "sitemap.xml"):
+    f = ROOT / fname
+    if f.exists():
+        for host in re.findall(r"(?:Sitemap:\s*|<loc>)https?://([^/<\s]+)", f.read_text(encoding="utf-8")):
+            own.setdefault(host, []).append(fname)
+if len(own) > 1:
+    problem("(site address)", "more than one address is used: " +
+            "; ".join(f"{h} in {', '.join(sorted(set(v)))}" for h, v in own.items()))
+
 # Report
 print(f"Checked {len(data)} page(s): {', '.join(data)}")
 if problems:
     print(f"\n{len(problems)} problem(s) found:")
     print("\n".join(problems))
     sys.exit(1)
-print("All good: footers, home icon, version, security policy, header, links and sitemap match.")
+print("All good: footers, home icon, version, security policy, header, links, sitemap and site address match.")

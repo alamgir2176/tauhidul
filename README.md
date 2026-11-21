@@ -109,6 +109,15 @@ Cormorant Garamond is served from `fonts/` as small `.woff` files that hold only
 
 The "T" icon is a Cormorant Garamond capital (bold, the same family as the site; the thin text weight turned faint and blurry at icon sizes) drawn as a path, so it looks the same on every device. It is dark (`#1d1c1a`) on the site's off-white (`#faf8f4`), with a fine hairline (`#c8c2b6`) round the browser-tab version so the pale square doesn't disappear into a light tab. The share picture `og.png` uses the same typeface as the site. To change the wording on the share picture, edit and re-export it at 1200 × 630, then raise `site-version`. Social apps keep old previews for a while; the Facebook Sharing Debugger and LinkedIn Post Inspector can refresh them.
 
+## Moving to another host or a custom domain
+
+1. Change the address everywhere it appears: `canonical`, `og:url`, `og:image`, `twitter:image` and the `url` in the structured data in `index.html`, the `Sitemap:` line in `robots.txt`, `sitemap.xml`, and the "Live at" line above. `python3 scripts/check-pages.py` reports any place still using a different address.
+2. `vercel.json` only works on Vercel. On another host, set the same headers there (Netlify and Cloudflare Pages use a `_headers` file): the Content-Security-Policy including `frame-ancestors 'none'`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy`, `Strict-Transport-Security`, `Cross-Origin-Opener-Policy`, and for `/photo.jpg` `Cross-Origin-Resource-Policy: same-origin` and `X-Robots-Tag: noimageindex`. The Content-Security-Policy `<meta>` in each page keeps working without them.
+3. Make sure addresses without `.html` (for example `/writing`) open on the new host before adding pages.
+4. Turn on HTTPS and redirect `www` and the bare domain to one of them. Note that `Strict-Transport-Security` here has `includeSubDomains`, so every subdomain of the new domain must support HTTPS.
+5. When the old Vercel or Netlify project is deleted, also remove any DNS record that still points to it, so nobody else can claim that address.
+6. Ask LinkedIn Post Inspector and the Facebook Sharing Debugger to refresh the link preview, and submit the new `sitemap.xml` in Google Search Console.
+
 ## Checking the pages
 
 Before pushing, run this in the project folder:
@@ -117,7 +126,7 @@ Before pushing, run this in the project folder:
 python3 scripts/check-pages.py
 ```
 
-It changes nothing. It checks that every page other than the home page has the home icon first in the footer, that the home icon is identical everywhere, that `site-version` and the security policy match on all pages, that the header is on every page or none, that linked files exist, and that `sitemap.xml` lists every page. It prints "All good" or a list of what to fix. It needs only Python 3.
+It changes nothing. It checks that every page other than the home page has the home icon first in the footer, that the home icon is identical everywhere, that `site-version` and the security policy match on all pages, that the header is on every page or none, that linked files exist, and that `sitemap.xml` lists every page, and that the site's own address is the same everywhere. It prints "All good" or a list of what to fix. It needs only Python 3.
 
 ## Checking which version is live
 
