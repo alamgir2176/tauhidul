@@ -2,6 +2,10 @@
 
 Notable changes to the site, newest first. The version on each page is in `<meta name="site-version">`.
 
+## 2026-11-22
+
+- Home page text: "I read Western and Indian thought…" is now "During those years I read Western and Indian thought…", which ties the reading to the university years.
+
 ## 2026-11-21
 
 - Footer icons are back to the thin-line set (plain house with roof, "in" with a round arch, envelope), with the envelope made a little narrower (13.0 wide instead of 14.1, the same width as the "in") so it no longer stands out. The filled icons tried just before are in commit `dd7670b` (site version `2026-11-21-m`).
