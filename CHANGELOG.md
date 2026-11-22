@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-22
 
+- Home page text: "…helping where I could, and I like to wander…" is now two sentences ("…helping where I could. I like to wander…"), so fewer "and"s run on. To go back, use commit `66d5f6f` (site version `2026-11-22-c`).
 - Home page text: "the philosophy of Bengal" is now "Bengali philosophy", and the last sentence is split so "And… and" no longer echoes: "And I always come back to Bengali novels. I keep a small collection of them." To go back, use commit `6f96ee6` (site version `2026-11-22-b`).
 - Home page text, small edits for an English reader's ear: "it's still the place", "stayed on for my master's too", "live well alongside them", "and I keep a small collection of them". To go back, use commit `b15f192` (site version `2026-11-22-a`).
 - Home page text: "I read Western and Indian thought…" is now "During those years I read Western and Indian thought…", which ties the reading to the university years.
