@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-22
 
+- Home page text, small edits for an English reader's ear: "it's still the place", "stayed on for my master's too", "live well alongside them", "and I keep a small collection of them". To go back, use commit `b15f192` (site version `2026-11-22-a`).
 - Home page text: "I read Western and Indian thought…" is now "During those years I read Western and Indian thought…", which ties the reading to the university years.
 
 ## 2026-11-21
