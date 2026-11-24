@@ -2,6 +2,10 @@
 
 Notable changes to the site, newest first. The version on each page is in `<meta name="site-version">`.
 
+## 2026-11-24
+
+- README: added a short "About this site" paragraph. The site itself is unchanged (still version `2026-11-22-d`).
+
 ## 2026-11-22
 
 - Home page text: "…helping where I could, and I like to wander…" is now two sentences ("…helping where I could. I like to wander…"), so fewer "and"s run on. To go back, use commit `66d5f6f` (site version `2026-11-22-c`).

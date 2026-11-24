@@ -4,6 +4,10 @@ A small, quiet personal site in plain HTML and CSS. There is no framework, no Ja
 
 Live at <https://tauhidul.vercel.app/>.
 
+## About this site
+
+This site gathers things that are beautiful, common and widely used (plain HTML and CSS, a single column of text, a serif typeface with an open licence, a few small icons) and presents them together in a simple, calm way. Nothing here is new or invented: no new font, language or technology.
+
 ## Files
 
 | File | What it is |
