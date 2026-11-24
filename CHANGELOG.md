@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-24
 
+- LICENSE: rewritten shorter and softer. It now covers the text and the photograph, asks for written permission before reuse, and keeps the fonts under their own licence. To go back, use commit `4be3904`.
 - LICENSE: "the design" is no longer listed among the things Tauhidul owns (layout, colours and type are common ideas, as the README says); the icons are named instead. To go back, use commit `fe2d314`.
 - README: added a short "About this site" paragraph. The site itself is unchanged (still version `2026-11-22-d`).
 
