@@ -8,7 +8,7 @@ Run it from the project folder before you publish:
 It reads every .html file next to it (nothing is changed) and reports
 anything that doesn't match: the footer, the home icon, the version marker,
 the security policy, the header, links and files that don't exist, and the
-sitemap. It needs only Python 3, no installs. It exits with an error code if
+sitemap, and security.txt. It needs only Python 3, no installs. It exits with an error code if
 it finds a problem, so it can also be run automatically later.
 """
 import json
@@ -195,10 +195,37 @@ if len(own) > 1:
     problem("(site address)", "more than one address is used: " +
             "; ".join(f"{h} in {', '.join(sorted(set(v)))}" for h, v in own.items()))
 
+# 9. security.txt: present, has Contact and Expires, not expired (renew it once a year),
+#    and its contact is an address that is on the home page.
+sec = ROOT / ".well-known" / "security.txt"
+if not sec.exists():
+    problem(".well-known/security.txt", "is missing")
+else:
+    txt = sec.read_text(encoding="utf-8")
+    contact = re.search(r"^Contact:\s*(\S+)", txt, re.M)
+    expires = re.search(r"^Expires:\s*(\S+)", txt, re.M)
+    if not contact:
+        problem(".well-known/security.txt", "has no Contact line")
+    elif contact.group(1).startswith("mailto:") and contact.group(1) not in data[HOME_PAGE]["html"]:
+        problem(".well-known/security.txt", f"contact {contact.group(1)} is not on the home page")
+    if not expires:
+        problem(".well-known/security.txt", "has no Expires line")
+    else:
+        from datetime import datetime, timezone, timedelta
+        try:
+            when = datetime.fromisoformat(expires.group(1).replace("Z", "+00:00"))
+            now = datetime.now(timezone.utc)
+            if when < now:
+                problem(".well-known/security.txt", f"expired on {expires.group(1)}: set a new date, up to a year ahead")
+            elif when < now + timedelta(days=45):
+                problem(".well-known/security.txt", f"expires soon ({expires.group(1)}): set a new date, up to a year ahead")
+        except ValueError:
+            problem(".well-known/security.txt", f"Expires is not a valid date: {expires.group(1)}")
+
 # Report
 print(f"Checked {len(data)} page(s): {', '.join(data)}")
 if problems:
     print(f"\n{len(problems)} problem(s) found:")
     print("\n".join(problems))
     sys.exit(1)
-print("All good: footers, home icon, version, security policy, header, links, sitemap and site address match.")
+print("All good: footers, home icon, version, security policy, header, links, sitemap, security.txt and site address match.")

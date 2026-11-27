@@ -122,6 +122,10 @@ The "T" icon is a Cormorant Garamond capital (bold, the same family as the site;
 5. When the old Vercel or Netlify project is deleted, also remove any DNS record that still points to it, so nobody else can claim that address.
 6. Ask LinkedIn Post Inspector and the Facebook Sharing Debugger to refresh the link preview, and submit the new `sitemap.xml` in Google Search Console.
 
+## Security contact
+
+`.well-known/security.txt` tells anyone who finds a security problem where to write. It needs a new `Expires` date once a year (up to a year ahead); the check below warns 45 days before it runs out.
+
 ## Checking the pages
 
 Before pushing, run this in the project folder:
@@ -130,7 +134,7 @@ Before pushing, run this in the project folder:
 python3 scripts/check-pages.py
 ```
 
-It changes nothing. It checks that every page other than the home page has the home icon first in the footer, that the home icon is identical everywhere, that `site-version` and the security policy match on all pages, that the header is on every page or none, that linked files exist, and that `sitemap.xml` lists every page, and that the site's own address is the same everywhere. It prints "All good" or a list of what to fix. It needs only Python 3.
+It changes nothing. It checks that every page other than the home page has the home icon first in the footer, that the home icon is identical everywhere, that `site-version` and the security policy match on all pages, that the header is on every page or none, that linked files exist, and that `sitemap.xml` lists every page, that the site's own address is the same everywhere, and that `.well-known/security.txt` is present and not about to expire. It prints "All good" or a list of what to fix. It needs only Python 3.
 
 ## Checking which version is live
 

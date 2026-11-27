@@ -2,6 +2,10 @@
 
 Notable changes to the site, newest first. The version on each page is in `<meta name="site-version">`.
 
+## 2026-11-27
+
+- Added `.well-known/security.txt` (contact: the email already on the home page; expires 2026-11-26 next year, so renew it once a year). The check script now looks at it. The pages themselves are unchanged. To go back, delete the file and the "security.txt" check, or use commit `da772f2`.
+
 ## 2026-11-24
 
 - LICENSE: rewritten shorter and softer. It now covers the text and the photograph, asks for written permission before reuse, and keeps the fonts under their own licence. To go back, use commit `4be3904`.
