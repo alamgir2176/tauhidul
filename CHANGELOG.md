@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-27
 
+- Removed `.well-known/security.txt` again, together with its check and README section: it needed a new date every year, and the site is meant to need no upkeep. The footer email stays as the contact. To bring it back, use commit `9604a6f`.
 - Added `.well-known/security.txt` (contact: the email already on the home page; expires 2026-11-26 next year, so renew it once a year). The check script now looks at it. The pages themselves are unchanged. To go back, delete the file and the "security.txt" check, or use commit `da772f2`.
 
 ## 2026-11-24
