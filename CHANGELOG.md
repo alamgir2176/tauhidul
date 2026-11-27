@@ -4,6 +4,7 @@ Notable changes to the site, newest first. The version on each page is in `<meta
 
 ## 2026-11-27
 
+- The portrait now has a thin hairline frame with a small gap around it, like a mounted print (one line in `style.css`, in the `.portrait` rule). Nothing else changed. **To go back**, use commit `ac28646` (site version `2026-11-22-d`), or delete that one `box-shadow` line.
 - Removed `.well-known/security.txt` again, together with its check and README section: it needed a new date every year, and the site is meant to need no upkeep. The footer email stays as the contact. To bring it back, use commit `9604a6f`.
 - Added `.well-known/security.txt` (contact: the email already on the home page; expires 2026-11-26 next year, so renew it once a year). The check script now looks at it. The pages themselves are unchanged. To go back, delete the file and the "security.txt" check, or use commit `da772f2`.
 

@@ -227,6 +227,10 @@ body {
 
   background: #ebe6dc url("/photo.jpg") center / cover no-repeat;
 
+  /* A thin hairline frame with a small gap, like a mounted print. To remove it,
+     delete this one line. */
+  box-shadow: 0 0 0 0.4em var(--bg), 0 0 0 calc(0.4em + 1px) #d9d2c2;
+
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;
