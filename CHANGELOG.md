@@ -2,6 +2,10 @@
 
 Notable changes to the site, newest first. The version on each page is in `<meta name="site-version">`.
 
+## 2026-11-28
+
+- LICENSE: the first paragraph no longer says the text and the photograph are Tauhidul's own work (the photo was taken by someone else, and the text was written with help). It now says they are about him and asks people to ask before copying. To go back, use commit `e4704e6`.
+
 ## 2026-11-27
 
 - Tried a thin hairline frame around the portrait and took it out again the same day. The site is back exactly as in commit `ac28646` (site version `2026-11-22-d`). The tried version is in commit `22d0931`.
